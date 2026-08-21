@@ -1,509 +1,1057 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>نورا شاپ | فروشگاه لوازم آرایشی</title>
+<title>نورا شاپ | فروشگاه آنلاین لوازم آرایشی</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Tahoma, Arial, sans-serif;
-            background: #fff7fb;
-            color: #222;
-        }
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f8, #f3e8ff, #fce7f3);
+    color: #3b174d;
+}
 
-        header {
-            background: linear-gradient(135deg, #d81b60, #9c27b0);
-            color: white;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-        }
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .admin-btn {
-            background: white;
-            color: #b01865;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    padding: 15px 20px;
 
-        .hero {
-            text-align: center;
-            padding: 55px 20px;
-            background: linear-gradient(135deg, #ffe1ed, #f4ddff);
-        }
+    color: white;
 
-        .hero h1 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
+    background:
+        linear-gradient(
+            120deg,
+            #6d28d9,
+            #9333ea,
+            #c026d3,
+            #ec4899,
+            #f43f5e
+        );
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-        }
+    box-shadow: 0 5px 25px rgba(126, 34, 206, .3);
+}
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 20px;
-        }
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
 
-        .admin-panel {
-            display: none;
-            background: white;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+.admin-button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 12px;
 
-        .admin-panel h2 {
-            color: #c2185b;
-        }
+    background: white;
+    color: #9d174d;
 
-        .admin-panel input {
-            width: 100%;
-            padding: 12px;
-            margin: 7px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .admin-panel button {
-            padding: 11px 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin: 5px;
-        }
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
 
-        .add-btn {
-            background: #d81b60;
-            color: white;
-        }
+    background:
+        radial-gradient(circle at 15% 20%, #f9a8d4, transparent 30%),
+        radial-gradient(circle at 85% 20%, #c4b5fd, transparent 30%),
+        linear-gradient(135deg, #fce7f3, #ede9fe);
+}
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.hero h1 {
+    margin: 0 0 15px;
 
-        .product {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-            transition: 0.2s;
-        }
+    font-size: 40px;
+    color: #7e22ce;
+}
 
-        .product:hover {
-            transform: translateY(-5px);
-        }
+.hero p {
+    font-size: 18px;
+    color: #86198f;
+}
 
-        .product img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            background: #eee;
-        }
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 18px;
+}
 
-        .product-info {
-            padding: 15px;
-        }
+/* ADMIN */
+.admin-panel {
+    display: none;
 
-        .product-info h3 {
-            margin-top: 0;
-        }
+    background: rgba(255,255,255,.95);
 
-        .price {
-            color: #d81b60;
-            font-weight: bold;
-            font-size: 20px;
-        }
+    padding: 22px;
+    margin-bottom: 30px;
 
-        .buy-btn {
-            width: 100%;
-            padding: 11px;
-            border: none;
-            border-radius: 8px;
-            background: #d81b60;
-            color: white;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+    border-radius: 20px;
 
-        .management-buttons {
-            display: none;
-            margin-top: 10px;
-        }
+    border: 2px solid #e9a8f5;
 
-        .management-buttons button {
-            border: none;
-            padding: 8px 12px;
-            border-radius: 7px;
-            cursor: pointer;
-            margin-left: 5px;
-        }
+    box-shadow:
+        0 10px 35px rgba(126,34,206,.15);
+}
 
-        .edit-btn {
-            background: #ffb300;
-        }
+.admin-panel h2 {
+    color: #a21caf;
+}
 
-        .delete-btn {
-            background: #e53935;
-            color: white;
-        }
+.admin-panel input {
+    width: 100%;
 
-        .support {
-            margin-top: 40px;
-            background: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-        }
+    padding: 13px;
+    margin: 7px 0;
 
-        .support a {
-            display: inline-block;
-            margin: 8px;
-            padding: 12px 18px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            background: #d81b60;
-        }
+    border: 2px solid #e9d5ff;
+    border-radius: 10px;
+}
 
-        footer {
-            margin-top: 40px;
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-    </style>
+.gallery-button {
+    display: block;
+
+    margin-top: 10px;
+    padding: 13px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #9333ea, #ec4899);
+
+    border-radius: 10px;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#productImage {
+    display: none;
+}
+
+#imagePreview {
+    display: none;
+
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+
+    margin: 15px auto;
+
+    border-radius: 15px;
+
+    border: 3px solid #d946ef;
+}
+
+/* BUTTONS */
+.add-button {
+    border: none;
+
+    padding: 12px 20px;
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #7c3aed, #db2777);
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-button {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    background: #eee;
+
+    cursor: pointer;
+}
+
+/* PRODUCTS */
+.products {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 22px;
+}
+
+.product {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #f0abfc;
+
+    box-shadow:
+        0 8px 30px rgba(126,34,206,.13);
+
+    transition: .25s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+}
+
+.product img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    background: #f5e8ff;
+}
+
+.product-info {
+    padding: 17px;
+}
+
+.product-info h3 {
+    color: #86198f;
+}
+
+.price {
+    color: #db2777;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.order-button {
+    width: 100%;
+
+    margin-top: 12px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 10px;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #9333ea, #db2777);
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.management {
+    display: none;
+    margin-top: 10px;
+}
+
+.management button {
+    border: none;
+
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.edit {
+    background: #facc15;
+}
+
+.delete {
+    background: #ef4444;
+    color: white;
+}
+
+/* SUPPORT */
+.support {
+    margin-top: 45px;
+
+    padding: 28px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(135deg, #fdf2f8, #f5f3ff);
+
+    border: 2px solid #e9a8f5;
+}
+
+.support-button {
+    display: inline-block;
+
+    margin: 7px;
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(135deg, #9333ea, #db2777);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 45px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg, #581c87, #831843);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+}
+</style>
 </head>
+
 
 <body>
 
+<!-- HEADER -->
 <header>
-    <div class="logo">💄 نورا شاپ</div>
 
-    <button class="admin-btn" onclick="adminLogin()">
-        مدیریت
+    <div class="logo">
+        💄 نورا شاپ
+    </div>
+
+    <button
+        class="admin-button"
+        onclick="loginAdmin()">
+
+        ⚙️ مدیریت
+
     </button>
+
 </header>
 
+
+<!-- HERO -->
 <section class="hero">
-    <h1>به نورا شاپ خوش آمدید 🌸</h1>
-    <p>فروشگاه آنلاین لوازم آرایشی و زیبایی</p>
+
+    <h1>
+        به نورا شاپ خوش آمدید 💜🌸
+    </h1>
+
+    <p>
+        فروشگاه آنلاین لوازم آرایشی و زیبایی ✨
+    </p>
+
 </section>
+
 
 <div class="container">
 
-    <div id="adminPanel" class="admin-panel">
 
-        <h2>پنل مدیریت</h2>
+<!-- ADMIN PANEL -->
+<div
+    id="adminPanel"
+    class="admin-panel">
 
-        <input id="productName" type="text" placeholder="نام محصول">
+    <h2>
+        👑 پنل مدیریت نورا شاپ
+    </h2>
 
-        <input id="productPrice" type="text" placeholder="قیمت محصول">
+    <input
+        id="productName"
+        type="text"
+        placeholder="نام محصول">
 
-        <input id="productImage" type="text" placeholder="لینک عکس محصول">
 
-        <button class="add-btn" onclick="addProduct()">
-            ➕ اضافه کردن محصول
-        </button>
+    <input
+        id="productPrice"
+        type="text"
+        placeholder="قیمت محصول">
 
-        <button onclick="logout()">
-            خروج از مدیریت
-        </button>
 
-    </div>
+    <!-- GALLERY -->
+    <label
+        for="productImage"
+        class="gallery-button">
 
-    <h2>محصولات فروشگاه</h2>
+        📷 انتخاب عکس محصول از گالری
 
-    <div id="products" class="products"></div>
+    </label>
 
-    <div class="support">
+    <input
+        id="productImage"
+        type="file"
+        accept="image/*">
 
-        <h2>پشتیبانی بیز شاپ 📞</h2>
 
-        <p>برای خرید یا پشتیبانی با ما در ارتباط باشید.</p>
+    <img
+        id="imagePreview"
+        alt="پیش نمایش محصول">
 
-        <a href="tel:09018815652">
-            📞 تماس با پشتیبانی
-        </a>
 
-        <a href="https://rubika.ir/Mohammadrezaxxv" target="_blank">
-            💬 پاسخگویی آنلاین روبیکا
-        </a>
+    <button
+        class="add-button"
+        onclick="addProduct()">
 
-    </div>
+        ➕ ثبت محصول
+
+    </button>
+
+
+    <button
+        class="logout-button"
+        onclick="logout()">
+
+        خروج از مدیریت
+
+    </button>
 
 </div>
 
+
+<!-- PRODUCTS -->
+<h2>
+    ✨ محصولات نورا شاپ
+</h2>
+
+<div
+    id="products"
+    class="products">
+
+</div>
+
+
+<!-- SUPPORT -->
+<div class="support">
+
+    <h2>
+        💜 پشتیبانی نورا شاپ
+    </h2>
+
+    <p>
+        برای ثبت سفارش و دریافت راهنمایی
+        با ما در ارتباط باشید.
+    </p>
+
+
+    <a
+        class="support-button"
+        href="tel:09018815652">
+
+        📞 تماس با پشتیبانی
+
+    </a>
+
+
+    <a
+        class="support-button"
+        href="https://rubika.ir/Mohammadrezaxxv"
+        target="_blank">
+
+        💬 پاسخگویی آنلاین روبیکا
+
+    </a>
+
+</div>
+
+</div>
+
+
 <footer>
-    © 2026 نورا شاپ | فروشگاه آنلاین لوازم آرایشی
+
+    © 2026 نورا شاپ
+    <br>
+    فروشگاه آنلاین لوازم آرایشی 💄
+
 </footer>
 
 
 <script>
 
-    const ADMIN_PASSWORD = "Mohammadreza.1387";
+/* =========================
+   SETTINGS
+========================= */
 
-    let products = JSON.parse(localStorage.getItem("bizShopProducts")) || [];
+const ADMIN_PASSWORD =
+    "Mohammadreza1387";
 
-    let adminLoggedIn = false;
+const SUPPORT_PHONE =
+    "09018815652";
 
-
-    function adminLogin() {
-
-        const password = prompt("رمز مدیریت را وارد کنید:");
-
-        if (password === ADMIN_PASSWORD) {
-
-            adminLoggedIn = true;
-
-            document.getElementById("adminPanel").style.display = "block";
-
-            document.querySelectorAll(".management-buttons")
-                .forEach(el => el.style.display = "block");
-
-            alert("ورود موفق بود ✅");
-
-        } else {
-
-            alert("رمز عبور اشتباه است ❌");
-
-        }
-
-    }
+const RUBIKA_ID =
+    "@Mohammadrezaxxv";
 
 
-    function logout() {
+/* =========================
+   DATA
+========================= */
 
-        adminLoggedIn = false;
-
-        document.getElementById("adminPanel").style.display = "none";
-
-        document.querySelectorAll(".management-buttons")
-            .forEach(el => el.style.display = "none");
-
-    }
+let products =
+    JSON.parse(
+        localStorage.getItem("noraShopProducts")
+    ) || [];
 
 
-    function addProduct() {
-
-        if (!adminLoggedIn) {
-            alert("ابتدا وارد مدیریت شوید.");
-            return;
-        }
-
-        const name =
-            document.getElementById("productName").value.trim();
-
-        const price =
-            document.getElementById("productPrice").value.trim();
-
-        const image =
-            document.getElementById("productImage").value.trim();
+let adminLoggedIn = false;
 
 
-        if (!name || !price) {
+/* =========================
+   GALLERY
+========================= */
 
-            alert("نام و قیمت محصول را وارد کنید.");
-
-            return;
-        }
-
-
-        products.push({
-            id: Date.now(),
-            name: name,
-            price: price,
-            image: image
-        });
+const imageInput =
+    document.getElementById(
+        "productImage"
+    );
 
 
-        saveProducts();
+const imagePreview =
+    document.getElementById(
+        "imagePreview"
+    );
 
-        document.getElementById("productName").value = "";
-        document.getElementById("productPrice").value = "";
-        document.getElementById("productImage").value = "";
+
+imageInput.addEventListener(
+    "change",
+    function () {
+
+        const file =
+            this.files[0];
+
+        if (!file) return;
+
+
+        const reader =
+            new FileReader();
+
+
+        reader.onload =
+            function (event) {
+
+                imagePreview.src =
+                    event.target.result;
+
+                imagePreview.style.display =
+                    "block";
+
+            };
+
+
+        reader.readAsDataURL(file);
 
     }
+);
 
 
-    function editProduct(id) {
+/* =========================
+   ADMIN LOGIN
+========================= */
 
-        if (!adminLoggedIn) return;
+function loginAdmin() {
 
-        const product = products.find(p => p.id === id);
-
-        if (!product) return;
-
-
-        const newName =
-            prompt("نام جدید محصول:", product.name);
-
-        if (newName === null) return;
-
-
-        const newPrice =
-            prompt("قیمت جدید:", product.price);
-
-        if (newPrice === null) return;
-
-
-        product.name = newName;
-        product.price = newPrice;
-
-
-        saveProducts();
-
-    }
-
-
-    function deleteProduct(id) {
-
-        if (!adminLoggedIn) return;
-
-
-        const confirmDelete =
-            confirm("آیا مطمئن هستید که می‌خواهید این محصول حذف شود؟");
-
-        if (!confirmDelete) return;
-
-
-        products =
-            products.filter(product => product.id !== id);
-
-
-        saveProducts();
-
-    }
-
-
-    function saveProducts() {
-
-        localStorage.setItem(
-            "bizShopProducts",
-            JSON.stringify(products)
+    const password =
+        prompt(
+            "رمز مدیریت نورا شاپ را وارد کنید:"
         );
 
-        renderProducts();
+
+    if (
+        password ===
+        ADMIN_PASSWORD
+    ) {
+
+        adminLoggedIn = true;
+
+
+        document
+            .getElementById(
+                "adminPanel"
+            )
+            .style.display =
+            "block";
+
+
+        document
+            .querySelectorAll(
+                ".management"
+            )
+            .forEach(
+                item =>
+                    item.style.display =
+                    "block"
+            );
+
+
+        alert(
+            "ورود به مدیریت موفق بود ✅"
+        );
+
+    } else {
+
+        alert(
+            "رمز عبور اشتباه است ❌"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    adminLoggedIn = false;
+
+
+    document
+        .getElementById(
+            "adminPanel"
+        )
+        .style.display =
+        "none";
+
+
+    document
+        .querySelectorAll(
+            ".management"
+        )
+        .forEach(
+            item =>
+                item.style.display =
+                "none"
+        );
+
+}
+
+
+/* =========================
+   ADD PRODUCT
+========================= */
+
+function addProduct() {
+
+    if (!adminLoggedIn) {
+
+        alert(
+            "ابتدا وارد بخش مدیریت شوید."
+        );
+
+        return;
+    }
+
+
+    const name =
+        document
+            .getElementById(
+                "productName"
+            )
+            .value
+            .trim();
+
+
+    const price =
+        document
+            .getElementById(
+                "productPrice"
+            )
+            .value
+            .trim();
+
+
+    const file =
+        document
+            .getElementById(
+                "productImage"
+            )
+            .files[0];
+
+
+    if (
+        !name ||
+        !price ||
+        !file
+    ) {
+
+        alert(
+            "نام، قیمت و عکس محصول را وارد کنید."
+        );
+
+        return;
 
     }
 
 
-    function renderProducts() {
-
-        const container =
-            document.getElementById("products");
-
-        container.innerHTML = "";
+    const reader =
+        new FileReader();
 
 
-        if (products.length === 0) {
+    reader.onload =
+        function (event) {
 
-            container.innerHTML =
-                "<p>هنوز محصولی اضافه نشده است.</p>";
+            products.push({
 
-            return;
+                id: Date.now(),
 
-        }
+                name: name,
+
+                price: price,
+
+                image:
+                    event.target.result
+
+            });
 
 
-        products.forEach(product => {
+            saveProducts();
+
+
+            document
+                .getElementById(
+                    "productName"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "productPrice"
+                )
+                .value = "";
+
+
+            imageInput.value = "";
+
+
+            imagePreview.style.display =
+                "none";
+
+
+            alert(
+                "محصول با موفقیت اضافه شد ✅"
+            );
+
+        };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   EDIT PRODUCT
+========================= */
+
+function editProduct(id) {
+
+    if (!adminLoggedIn)
+        return;
+
+
+    const product =
+        products.find(
+            item =>
+                item.id === id
+        );
+
+
+    if (!product)
+        return;
+
+
+    const newName =
+        prompt(
+            "نام محصول:",
+            product.name
+        );
+
+
+    if (newName === null)
+        return;
+
+
+    const newPrice =
+        prompt(
+            "قیمت محصول:",
+            product.price
+        );
+
+
+    if (newPrice === null)
+        return;
+
+
+    product.name =
+        newName.trim();
+
+
+    product.price =
+        newPrice.trim();
+
+
+    saveProducts();
+
+}
+
+
+/* =========================
+   DELETE PRODUCT
+========================= */
+
+function deleteProduct(id) {
+
+    if (!adminLoggedIn)
+        return;
+
+
+    const answer =
+        confirm(
+            "آیا مطمئن هستید که این محصول حذف شود؟"
+        );
+
+
+    if (!answer)
+        return;
+
+
+    products =
+        products.filter(
+            item =>
+                item.id !== id
+        );
+
+
+    saveProducts();
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveProducts() {
+
+    localStorage.setItem(
+        "noraShopProducts",
+        JSON.stringify(products)
+    );
+
+
+    renderProducts();
+
+}
+
+
+/* =========================
+   SHOW PRODUCTS
+========================= */
+
+function renderProducts() {
+
+    const container =
+        document.getElementById(
+            "products"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (
+        products.length === 0
+    ) {
+
+        container.innerHTML =
+            "<p>هنوز محصولی ثبت نشده است 🌸</p>";
+
+        return;
+
+    }
+
+
+    products.forEach(
+        product => {
 
             const card =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
-            card.className = "product";
+
+            card.className =
+                "product";
 
 
             card.innerHTML = `
 
-                <img src="${product.image || 'https://via.placeholder.com/400x300?text=Biz+Shop'}">
+                <img
+                    src="${product.image}"
+                    alt="${product.name}">
+
 
                 <div class="product-info">
 
-                    <h3>${product.name}</h3>
+                    <h3>
+                        ${product.name}
+                    </h3>
+
 
                     <div class="price">
+
                         ${product.price}
+
                     </div>
 
-                    <button class="buy-btn"
-                        onclick="contactSupport()">
-                        🛍️ سفارش محصول
+
+                    <button
+                        class="order-button"
+                        onclick="placeOrder(
+                            '${escapeText(product.name)}'
+                        )">
+
+                        🛍️ ثبت سفارش
+
                     </button>
 
-                    <div class="management-buttons">
 
-                        <button class="edit-btn"
-                            onclick="editProduct(${product.id})">
-                            ویرایش
+                    <div
+                        class="management">
+
+                        <button
+                            class="edit"
+                            onclick="editProduct(
+                                ${product.id}
+                            )">
+
+                            ✏️ ویرایش
+
                         </button>
 
-                        <button class="delete-btn"
-                            onclick="deleteProduct(${product.id})">
-                            حذف
+
+                        <button
+                            class="delete"
+                            onclick="deleteProduct(
+                                ${product.id}
+                            )">
+
+                            🗑️ حذف
+
                         </button>
 
                     </div>
 
                 </div>
+
             `;
 
 
-            container.appendChild(card);
-
-        });
-
-
-        if (adminLoggedIn) {
-
-            document.querySelectorAll(".management-buttons")
-                .forEach(el => el.style.display = "block");
+            container.appendChild(
+                card
+            );
 
         }
+    );
+
+
+    if (adminLoggedIn) {
+
+        document
+            .querySelectorAll(
+                ".management"
+            )
+            .forEach(
+                item =>
+                    item.style.display =
+                    "block"
+            );
 
     }
 
-
-    function contactSupport() {
-
-        alert(
-            "برای سفارش با پشتیبانی بیز شاپ تماس بگیرید:\n09018815652"
-        );
-
-    }
+}
 
 
-    renderProducts();
+/* =========================
+   ORDER
+========================= */
+
+function placeOrder(productName) {
+
+    alert(
+        "📦 ثبت سفارش\n\n" +
+        "محصول: " +
+        productName +
+        "\n\n" +
+        "📞 شماره پشتیبانی:\n" +
+        SUPPORT_PHONE +
+        "\n\n" +
+        "💬 روبیکا:\n" +
+        RUBIKA_ID
+    );
+
+}
+
+
+/* =========================
+   TEXT SAFETY
+========================= */
+
+function escapeText(text) {
+
+    return text
+        .replace(/'/g, "\\'")
+        .replace(/"/g, '\\"');
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+renderProducts();
 
 </script>
 
 </body>
-    </html>
+</html>
