@@ -4,44 +4,506 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>سایت من</title>
+    <title>بیز شاپ | فروشگاه لوازم آرایشی</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: #111827;
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #fff7fb;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d81b60, #9c27b0);
             color: white;
-            font-family: Arial, sans-serif;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .admin-btn {
+            background: white;
+            color: #b01865;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero {
             text-align: center;
-            padding-top: 100px;
+            padding: 55px 20px;
+            background: linear-gradient(135deg, #ffe1ed, #f4ddff);
         }
 
-        h1 {
-            font-size: 42px;
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
         }
 
-        p {
+        .hero p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .admin-panel {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .admin-panel h2 {
+            color: #c2185b;
+        }
+
+        .admin-panel input {
+            width: 100%;
+            padding: 12px;
+            margin: 7px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .admin-panel button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .add-btn {
+            background: #d81b60;
+            color: white;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info h3 {
+            margin-top: 0;
+        }
+
+        .price {
+            color: #d81b60;
+            font-weight: bold;
             font-size: 20px;
         }
 
-        button {
-            background: #2563eb;
-            color: white;
+        .buy-btn {
+            width: 100%;
+            padding: 11px;
             border: none;
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 18px;
+            border-radius: 8px;
+            background: #d81b60;
+            color: white;
             cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .management-buttons {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .management-buttons button {
+            border: none;
+            padding: 8px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .edit-btn {
+            background: #ffb300;
+        }
+
+        .delete-btn {
+            background: #e53935;
+            color: white;
+        }
+
+        .support {
+            margin-top: 40px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .support a {
+            display: inline-block;
+            margin: 8px;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            background: #d81b60;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 25px;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>سلام دنیا! 😎</h1>
+<header>
+    <div class="logo">💄 بیز شاپ</div>
 
-    <p>این اولین سایت منه.</p>
+    <button class="admin-btn" onclick="adminLogin()">
+        مدیریت
+    </button>
+</header>
 
-    <button>ورود</button>
+<section class="hero">
+    <h1>به بیز شاپ خوش آمدید 🌸</h1>
+    <p>فروشگاه آنلاین لوازم آرایشی و زیبایی</p>
+</section>
+
+<div class="container">
+
+    <div id="adminPanel" class="admin-panel">
+
+        <h2>پنل مدیریت</h2>
+
+        <input id="productName" type="text" placeholder="نام محصول">
+
+        <input id="productPrice" type="text" placeholder="قیمت محصول">
+
+        <input id="productImage" type="text" placeholder="لینک عکس محصول">
+
+        <button class="add-btn" onclick="addProduct()">
+            ➕ اضافه کردن محصول
+        </button>
+
+        <button onclick="logout()">
+            خروج از مدیریت
+        </button>
+
+    </div>
+
+    <h2>محصولات فروشگاه</h2>
+
+    <div id="products" class="products"></div>
+
+    <div class="support">
+
+        <h2>پشتیبانی بیز شاپ 📞</h2>
+
+        <p>برای خرید یا پشتیبانی با ما در ارتباط باشید.</p>
+
+        <a href="tel:09018815652">
+            📞 تماس با پشتیبانی
+        </a>
+
+        <a href="https://rubika.ir/Mohammadrezaxxv" target="_blank">
+            💬 پاسخگویی آنلاین روبیکا
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 بیز شاپ | فروشگاه آنلاین لوازم آرایشی
+</footer>
+
+
+<script>
+
+    const ADMIN_PASSWORD = "Mohammadreza1387";
+
+    let products = JSON.parse(localStorage.getItem("bizShopProducts")) || [];
+
+    let adminLoggedIn = false;
+
+
+    function adminLogin() {
+
+        const password = prompt("رمز مدیریت را وارد کنید:");
+
+        if (password === ADMIN_PASSWORD) {
+
+            adminLoggedIn = true;
+
+            document.getElementById("adminPanel").style.display = "block";
+
+            document.querySelectorAll(".management-buttons")
+                .forEach(el => el.style.display = "block");
+
+            alert("ورود موفق بود ✅");
+
+        } else {
+
+            alert("رمز عبور اشتباه است ❌");
+
+        }
+
+    }
+
+
+    function logout() {
+
+        adminLoggedIn = false;
+
+        document.getElementById("adminPanel").style.display = "none";
+
+        document.querySelectorAll(".management-buttons")
+            .forEach(el => el.style.display = "none");
+
+    }
+
+
+    function addProduct() {
+
+        if (!adminLoggedIn) {
+            alert("ابتدا وارد مدیریت شوید.");
+            return;
+        }
+
+        const name =
+            document.getElementById("productName").value.trim();
+
+        const price =
+            document.getElementById("productPrice").value.trim();
+
+        const image =
+            document.getElementById("productImage").value.trim();
+
+
+        if (!name || !price) {
+
+            alert("نام و قیمت محصول را وارد کنید.");
+
+            return;
+        }
+
+
+        products.push({
+            id: Date.now(),
+            name: name,
+            price: price,
+            image: image
+        });
+
+
+        saveProducts();
+
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+        document.getElementById("productImage").value = "";
+
+    }
+
+
+    function editProduct(id) {
+
+        if (!adminLoggedIn) return;
+
+        const product = products.find(p => p.id === id);
+
+        if (!product) return;
+
+
+        const newName =
+            prompt("نام جدید محصول:", product.name);
+
+        if (newName === null) return;
+
+
+        const newPrice =
+            prompt("قیمت جدید:", product.price);
+
+        if (newPrice === null) return;
+
+
+        product.name = newName;
+        product.price = newPrice;
+
+
+        saveProducts();
+
+    }
+
+
+    function deleteProduct(id) {
+
+        if (!adminLoggedIn) return;
+
+
+        const confirmDelete =
+            confirm("آیا مطمئن هستید که می‌خواهید این محصول حذف شود؟");
+
+        if (!confirmDelete) return;
+
+
+        products =
+            products.filter(product => product.id !== id);
+
+
+        saveProducts();
+
+    }
+
+
+    function saveProducts() {
+
+        localStorage.setItem(
+            "bizShopProducts",
+            JSON.stringify(products)
+        );
+
+        renderProducts();
+
+    }
+
+
+    function renderProducts() {
+
+        const container =
+            document.getElementById("products");
+
+        container.innerHTML = "";
+
+
+        if (products.length === 0) {
+
+            container.innerHTML =
+                "<p>هنوز محصولی اضافه نشده است.</p>";
+
+            return;
+
+        }
+
+
+        products.forEach(product => {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "product";
+
+
+            card.innerHTML = `
+
+                <img src="${product.image || 'https://via.placeholder.com/400x300?text=Biz+Shop'}">
+
+                <div class="product-info">
+
+                    <h3>${product.name}</h3>
+
+                    <div class="price">
+                        ${product.price}
+                    </div>
+
+                    <button class="buy-btn"
+                        onclick="contactSupport()">
+                        🛍️ سفارش محصول
+                    </button>
+
+                    <div class="management-buttons">
+
+                        <button class="edit-btn"
+                            onclick="editProduct(${product.id})">
+                            ویرایش
+                        </button>
+
+                        <button class="delete-btn"
+                            onclick="deleteProduct(${product.id})">
+                            حذف
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
+
+        if (adminLoggedIn) {
+
+            document.querySelectorAll(".management-buttons")
+                .forEach(el => el.style.display = "block");
+
+        }
+
+    }
+
+
+    function contactSupport() {
+
+        alert(
+            "برای سفارش با پشتیبانی بیز شاپ تماس بگیرید:\n09018815652"
+        );
+
+    }
+
+
+    renderProducts();
+
+</script>
 
 </body>
-</html>
+    </html>
