@@ -9,178 +9,368 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;
- font-family:Tahoma,Arial;
- color:#fff;
- background:
- radial-gradient(circle at 10% 10%,#ff4aa8,transparent 30%),
- radial-gradient(circle at 90% 30%,#743cff,transparent 35%),
- linear-gradient(135deg,#100116,#26052f,#09000e);
- min-height:100vh
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+color:#fff;
+background:
+radial-gradient(circle at 10% 10%,#ff4aa8,transparent 30%),
+radial-gradient(circle at 90% 30%,#743cff,transparent 35%),
+linear-gradient(135deg,#100116,#26052f,#09000e);
+min-height:100vh;
 }
-button,input,textarea{font-family:inherit}
+
+button,input,textarea,select{font-family:inherit}
 button{cursor:pointer;border:0}
+
 header{
- position:sticky;top:0;z-index:50;
- display:flex;justify-content:space-between;align-items:center;
- padding:15px 18px;
- background:#120019e8;
- backdrop-filter:blur(15px);
- border-bottom:1px solid #ffffff20
+position:sticky;
+top:0;
+z-index:50;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 18px;
+background:#120019ee;
+backdrop-filter:blur(15px);
+border-bottom:1px solid #ffffff20;
 }
+
 .logo{
- font-size:24px;font-weight:bold;
- background:linear-gradient(90deg,#ff74c5,#9b68ff);
- -webkit-background-clip:text;color:transparent
+font-size:24px;
+font-weight:bold;
+background:linear-gradient(90deg,#ff74c5,#9b68ff);
+-webkit-background-clip:text;
+color:transparent;
 }
+
 .admin{
- padding:11px 17px;border-radius:13px;color:#fff;
- background:linear-gradient(90deg,#ff399d,#763cff)
+padding:11px 17px;
+border-radius:13px;
+color:#fff;
+background:linear-gradient(90deg,#ff399d,#763cff);
 }
-.hero{text-align:center;padding:45px 20px 20px}
+
+.hero{
+text-align:center;
+padding:45px 20px 20px;
+}
+
 .hero h1{font-size:34px;margin:8px}
 .hero p{color:#e7c9e6;line-height:2}
+
 .welcome{
- max-width:700px;margin:20px auto;padding:18px;
- border:1px solid #ffffff20;border-radius:22px;
- background:#ffffff0d
+max-width:700px;
+margin:20px auto;
+padding:18px;
+border:1px solid #ffffff20;
+border-radius:22px;
+background:#ffffff0d;
+text-align:center;
 }
 
-/* stories */
+.container{
+max-width:1150px;
+margin:auto;
+padding:0 18px;
+}
+
 .storyTitle{text-align:center;margin:25px 0 12px}
+
 .stories{
- display:flex;gap:13px;overflow-x:auto;padding:10px 5px 20px
+display:flex;
+gap:13px;
+overflow-x:auto;
+padding:10px 5px 20px;
 }
+
 .story{
- min-width:82px;text-align:center;cursor:pointer
+min-width:82px;
+text-align:center;
+cursor:pointer;
 }
+
 .storyImg{
- width:78px;height:78px;border-radius:50%;
- padding:3px;
- background:linear-gradient(45deg,#ff3b9d,#8b45ff,#ffcc70)
+width:78px;
+height:78px;
+border-radius:50%;
+padding:3px;
+background:linear-gradient(45deg,#ff3b9d,#8b45ff,#ffcc70);
 }
-.storyImg img{
- width:100%;height:100%;object-fit:cover;
- border-radius:50%;border:3px solid #17021e
+
+.storyImg img,
+.storyImg video{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+border:3px solid #17021e;
 }
+
 .story span{
- display:block;font-size:12px;margin-top:7px;
- white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+display:block;
+font-size:12px;
+margin-top:7px;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
 }
 
-/* categories */
 .categories{
- display:flex;gap:10px;overflow-x:auto;
- padding:10px 0 22px
-}
-.cat{
- flex:0 0 auto;padding:11px 18px;border-radius:30px;
- color:#fff;background:#ffffff10;
- border:1px solid #ffffff20
-}
-.cat.active,.cat:hover{
- background:linear-gradient(90deg,#ff3d9d,#793cff)
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:10px 0 22px;
 }
 
-/* products */
-.container{max-width:1150px;margin:auto;padding:0 18px}
+.cat{
+flex:0 0 auto;
+padding:11px 18px;
+border-radius:30px;
+color:#fff;
+background:#ffffff10;
+border:1px solid #ffffff20;
+}
+
+.cat.active,
+.cat:hover{
+background:linear-gradient(90deg,#ff3d9d,#793cff);
+}
+
 .search{
- width:100%;padding:14px;border-radius:14px;
- border:1px solid #ffffff20;background:#ffffff0d;
- color:#fff;outline:0;margin:8px 0 20px
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #ffffff20;
+background:#ffffff0d;
+color:#fff;
+outline:0;
+margin:8px 0 20px;
 }
+
 .products{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:18px
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:18px;
 }
+
 .card{
- overflow:hidden;border-radius:22px;
- background:#ffffff0c;border:1px solid #ffffff18;
- box-shadow:0 15px 35px #0005
+overflow:hidden;
+border-radius:22px;
+background:#ffffff0c;
+border:1px solid #ffffff18;
+box-shadow:0 15px 35px #0005;
 }
+
 .card img{
- width:100%;height:230px;object-fit:cover;display:block
+width:100%;
+height:230px;
+object-fit:cover;
+display:block;
 }
+
 .body{padding:15px}
-.body h3{color:#ff9bd6;margin:5px 0 9px}
-.desc{font-size:13px;color:#dbc7dc;line-height:1.8;min-height:45px}
-.price{font-size:19px;font-weight:bold;color:#ffd0e9;margin:13px 0}
-.order,.edit,.delete{
- width:100%;padding:11px;border-radius:11px;
- color:#fff;margin-top:7px
+
+.body h3{
+color:#ff9bd6;
+margin:5px 0 9px;
 }
-.order{background:linear-gradient(90deg,#ff3b9d,#793cff)}
+
+.desc{
+font-size:13px;
+color:#dbc7dc;
+line-height:1.8;
+min-height:45px;
+}
+
+.price{
+font-size:19px;
+font-weight:bold;
+color:#ffd0e9;
+margin:13px 0;
+}
+
+.order,
+.edit,
+.delete{
+width:100%;
+padding:11px;
+border-radius:11px;
+color:#fff;
+margin-top:7px;
+}
+
+.order{
+background:linear-gradient(90deg,#ff3b9d,#793cff);
+}
+
 .edit{background:#713cff}
 .delete{background:#bd285f}
 
-/* admin */
 .panel{
- display:none;max-width:900px;margin:30px auto;padding:20px;
- border-radius:24px;background:#110016ed;
- border:1px solid #ffffff20
+display:none;
+max-width:900px;
+margin:30px auto;
+padding:20px;
+border-radius:24px;
+background:#110016ed;
+border:1px solid #ffffff20;
 }
-.panel.show{display:block}
-.panel h2{color:#ff9bd6}
-input,textarea,select{
- width:100%;padding:12px;margin:6px 0;
- border-radius:11px;border:1px solid #ffffff20;
- background:#260d31;color:#fff;outline:0
-}
-textarea{height:90px;resize:none}
-.primary{
- padding:12px 18px;border-radius:12px;color:#fff;
- background:linear-gradient(90deg,#ff3d9d,#783cff);
- margin-top:7px
-}
-.secondary{
- padding:12px 18px;border-radius:12px;color:#fff;
- background:#ffffff15;margin-top:7px
-}
-.adminTabs{
- display:flex;gap:8px;overflow:auto;margin:15px 0
-}
-.tab{
- flex:0 0 auto;padding:10px 15px;border-radius:12px;
- background:#ffffff10;color:#fff
-}
-.pending{
- margin-top:15px;padding:13px;border-radius:15px;
- background:#ffffff09;border:1px solid #ffffff15
-}
-.approve{background:#159957;color:#fff;padding:8px;border-radius:9px}
-.reject{background:#bd285f;color:#fff;padding:8px;border-radius:9px}
 
-/* modal */
+.panel.show{display:block}
+
+.panel h2{color:#ff9bd6}
+
+.adminTabs{
+display:flex;
+gap:8px;
+overflow:auto;
+margin:15px 0;
+}
+
+.tab{
+flex:0 0 auto;
+padding:10px 15px;
+border-radius:12px;
+background:#ffffff10;
+color:#fff;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+margin:6px 0;
+border-radius:11px;
+border:1px solid #ffffff20;
+background:#260d31;
+color:#fff;
+outline:0;
+}
+
+textarea{
+height:90px;
+resize:none;
+}
+
+.primary{
+padding:12px 18px;
+border-radius:12px;
+color:#fff;
+background:linear-gradient(90deg,#ff3d9d,#783cff);
+margin-top:7px;
+}
+
+.secondary{
+padding:12px 18px;
+border-radius:12px;
+color:#fff;
+background:#ffffff15;
+margin-top:7px;
+}
+
+.pending{
+margin-top:15px;
+padding:13px;
+border-radius:15px;
+background:#ffffff09;
+border:1px solid #ffffff15;
+}
+
+.approve{
+background:#159957;
+color:#fff;
+padding:8px;
+border-radius:9px;
+margin:3px;
+}
+
+.reject{
+background:#bd285f;
+color:#fff;
+padding:8px;
+border-radius:9px;
+margin:3px;
+}
+
 .modal{
- display:none;position:fixed;inset:0;z-index:100;
- background:#000b;align-items:center;justify-content:center;
- padding:18px
+display:none;
+position:fixed;
+inset:0;
+z-index:100;
+background:#000b;
+align-items:center;
+justify-content:center;
+padding:18px;
 }
+
 .modal.show{display:flex}
+
 .box{
- width:100%;max-width:430px;
- background:#230a2e;border:1px solid #ffffff20;
- border-radius:22px;padding:22px
+width:100%;
+max-width:430px;
+background:#230a2e;
+border:1px solid #ffffff20;
+border-radius:22px;
+padding:22px;
+max-height:90vh;
+overflow:auto;
 }
-.close{float:left;font-size:25px;cursor:pointer}
+
+.close{
+float:left;
+font-size:25px;
+cursor:pointer;
+}
+
 .support{
- max-width:700px;margin:45px auto;padding:25px;
- text-align:center;border-radius:23px;background:#ffffff0d;
- border:1px solid #ffffff15
+max-width:700px;
+margin:45px auto;
+padding:25px;
+text-align:center;
+border-radius:23px;
+background:#ffffff0d;
+border:1px solid #ffffff15;
 }
-.support a{color:#ff9bd6;font-weight:bold}
-footer{text-align:center;padding:30px;color:#c7a7ca}
+
+.support a{
+color:#ff9bd6;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#c7a7ca;
+}
 
 .hidden{display:none!important}
 
+.notice{
+padding:15px;
+border-radius:15px;
+background:#ffffff0d;
+margin:10px 0;
+line-height:2;
+}
+
 @media(max-width:500px){
- .hero h1{font-size:27px}
- .products{grid-template-columns:repeat(2,1fr);gap:11px}
- .card img{height:180px}
- .body{padding:11px}
- .price{font-size:16px}
+
+.hero h1{font-size:27px}
+
+.products{
+grid-template-columns:repeat(2,1fr);
+gap:11px;
+}
+
+.card img{height:180px}
+
+.body{padding:11px}
+
+.price{font-size:16px}
+
 }
 </style>
 </head>
@@ -188,121 +378,193 @@ footer{text-align:center;padding:30px;color:#c7a7ca}
 <body>
 
 <header>
- <div class="logo">🌸 Nora Shop</div>
- <button class="admin" onclick="loginOpen()">👑 مدیریت</button>
+
+<div class="logo">🌸 Nora Shop</div>
+
+<button class="admin" onclick="loginOpen()">
+👑 مدیریت
+</button>
+
 </header>
 
 <section class="hero">
- <h1>به نورا شاپ خوش آمدید 💜</h1>
- <p>زیبایی از یک انتخاب آغاز می‌شود؛<br>
- انتخابی که تو را خاص‌تر از همیشه نشان می‌دهد.</p>
+
+<h1>به نورا شاپ خوش آمدید 💜</h1>
+
+<p>
+زیبایی از یک انتخاب آغاز می‌شود؛<br>
+انتخابی که تو را خاص‌تر از همیشه نشان می‌دهد.
+</p>
+
+<div class="welcome">
+✨ «زیبایی، زمانی کامل می‌شود که انتخابت خاص باشد.» ✨
+</div>
+
 </section>
 
 <div class="container">
 
 <h3 class="storyTitle">✨ استوری‌های جدید</h3>
+
 <div id="stories" class="stories">
- <span>در حال دریافت...</span>
+<span>در حال دریافت...</span>
 </div>
 
 <h3>📁 دسته‌بندی محصولات</h3>
+
 <div id="categories" class="categories"></div>
 
-<input id="search" class="search"
- placeholder="🔎 جستجوی محصول..."
- oninput="renderProducts()">
+<input
+id="search"
+class="search"
+placeholder="🔎 جستجوی محصول..."
+oninput="renderProducts()">
 
 <div id="products" class="products">
- <p>در حال دریافت محصولات...</p>
+<p>در حال دریافت محصولات...</p>
 </div>
 
 </div>
 
-
-<!-- ADMIN -->
 
 <section id="adminPanel" class="panel">
 
 <h2>👑 مدیریت Nora Shop</h2>
 
 <div class="adminTabs">
- <button class="tab" onclick="showAdmin('product')">📦 محصول</button>
- <button class="tab" onclick="showAdmin('category')">📁 دسته</button>
- <button class="tab" onclick="showAdmin('story')">📸 استوری</button>
- <button class="tab" onclick="loadPending()">⏳ تأییدها</button>
- <button class="tab" onclick="logout()">خروج</button>
+
+<button class="tab"
+onclick="showAdmin('product')">
+📦 محصول
+</button>
+
+<button class="tab"
+onclick="showAdmin('category')">
+📁 دسته
+</button>
+
+<button class="tab"
+onclick="showAdmin('story')">
+📸 استوری
+</button>
+
+<button class="tab"
+onclick="loadPending()">
+⏳ تأییدها
+</button>
+
+<button class="tab"
+onclick="loadAdminProducts()">
+✏️ ویرایش
+</button>
+
+<button class="tab"
+onclick="logout()">
+خروج
+</button>
+
 </div>
 
-<!-- product -->
+
 <div id="productAdmin">
 
 <h3>➕ افزودن محصول</h3>
 
 <input id="pTitle" placeholder="نام محصول">
+
 <input id="pPrice" placeholder="قیمت به تومان">
-<textarea id="pDescription" placeholder="توضیحات محصول"></textarea>
+
+<textarea
+id="pDescription"
+placeholder="توضیحات محصول"></textarea>
 
 <select id="pCategory">
 <option value="">بدون دسته‌بندی</option>
 </select>
 
-<input id="pImage" type="file" accept="image/*">
+<input
+id="pImage"
+type="file"
+accept="image/*">
 
-<button class="primary" onclick="saveProduct()">
+<button class="primary"
+onclick="saveProduct()">
 ثبت محصول
 </button>
 
-<button class="secondary" onclick="clearProductForm()">
+<button class="secondary"
+onclick="clearProductForm()">
 پاک کردن فرم
 </button>
 
 </div>
 
 
-<!-- category -->
-
 <div id="categoryAdmin" class="hidden">
 
 <h3>📁 ساخت دسته‌بندی</h3>
 
-<input id="cName" placeholder="نام دسته‌بندی">
+<input
+id="cName"
+placeholder="نام دسته‌بندی">
 
-<input id="cImage" type="file" accept="image/*">
+<input
+id="cImage"
+type="file"
+accept="image/*">
 
-<button class="primary" onclick="saveCategory()">
+<button class="primary"
+onclick="saveCategory()">
 ثبت دسته‌بندی
 </button>
 
 </div>
 
 
-<!-- story -->
-
 <div id="storyAdmin" class="hidden">
 
 <h3>📸 افزودن استوری</h3>
 
-<input id="sTitle" placeholder="عنوان استوری">
+<input
+id="sTitle"
+placeholder="عنوان استوری">
 
-<textarea id="sDescription"
+<textarea
+id="sDescription"
 placeholder="توضیحات استوری"></textarea>
 
-<input id="sMedia" type="file" accept="image/*,video/*">
+<input
+id="sMedia"
+type="file"
+accept="image/*,video/*">
 
-<button class="primary" onclick="saveStory()">
+<button class="primary"
+onclick="saveStory()">
 ثبت استوری
 </button>
-
-<p style="color:#cbb5cd;font-size:12px">
-استوری پس از تأیید مدیر منتشر می‌شود و ۲۴ ساعت فعال است.
-</p>
 
 </div>
 
 
 <div id="pendingAdmin" class="hidden">
+
 <h3>⏳ موارد در انتظار تأیید</h3>
-<div id="pendingList"></div>
+
+<div id="pendingList">
+در حال دریافت...
+</div>
+
+</div>
+
+
+<div id="manageAdmin" class="hidden">
+
+<h3>✏️ مدیریت محصولات</h3>
+
+<div id="manageList">
+در حال دریافت...
+</div>
+
 </div>
 
 </section>
@@ -312,86 +574,109 @@ placeholder="توضیحات استوری"></textarea>
 
 <h2>💬 پشتیبانی نورا شاپ</h2>
 
-<p>📞
-<a href="tel:09018815652">09018815652</a>
+<p>
+📞
+<a href="tel:09018815652">
+09018815652
+</a>
 </p>
 
 <p>💬 روبیکا</p>
 
-<a href="https://rubika.ir/Mohammadrezaxxv" target="_blank">
+<a
+href="https://rubika.ir/Mohammadrezaxxv"
+target="_blank">
 @Mohammadrezaxxv
 </a>
 
 </section>
 
+
 <footer>
+
 🌸 Nora Shop — زیبایی، ظرافت و انتخاب خاص 🌸
+
 </footer>
 
 
-<!-- LOGIN -->
-
 <div id="loginModal" class="modal">
+
 <div class="box">
 
-<span class="close" onclick="loginClose()">×</span>
+<span class="close"
+onclick="loginClose()">×</span>
 
 <h2>🔐 ورود مدیریت</h2>
 
-<input id="email" type="email" placeholder="ایمیل مدیر">
+<input
+id="email"
+type="email"
+placeholder="ایمیل مدیر">
 
-<input id="password" type="password"
+<input
+id="password"
+type="password"
 placeholder="رمز عبور">
 
-<button class="primary" onclick="login()">
+<button class="primary"
+onclick="login()">
 ورود
 </button>
 
 </div>
+
 </div>
 
 
-<!-- ORDER -->
-
 <div id="orderModal" class="modal">
+
 <div class="box">
 
-<span class="close" onclick="orderClose()">×</span>
+<span class="close"
+onclick="orderClose()">×</span>
 
 <h2>🛍️ ثبت سفارش</h2>
 
 <div id="orderText"></div>
 
-<hr style="border-color:#ffffff20;margin:18px 0">
+<hr style="border-color:#ffffff20">
 
-<p>📞 تماس برای ثبت سفارش:</p>
-<a href="tel:09018815652">09018815652</a>
+<p>📞 تماس:</p>
+
+<a href="tel:09018815652">
+09018815652
+</a>
 
 <p>💬 روبیکا:</p>
-<a href="https://rubika.ir/Mohammadrezaxxv" target="_blank">
+
+<a
+href="https://rubika.ir/Mohammadrezaxxv"
+target="_blank">
 @Mohammadrezaxxv
 </a>
 
-<p style="margin-top:18px">
+<p>
 💳 کارت ملت:<br>
 <b>6104338648434401</b><br>
 محمدرضا جوانشیر
 </p>
 
 </div>
+
 </div>
 
 
-<!-- STORY VIEW -->
-
 <div id="storyModal" class="modal">
+
 <div class="box">
 
-<span class="close" onclick="storyClose()">×</span>
+<span class="close"
+onclick="storyClose()">×</span>
 
 <div id="storyContent"></div>
 
 </div>
+
 </div>
 
 
@@ -405,7 +690,7 @@ const SUPABASE_URL =
 "https://kaqnstkkusakrwnevove.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_A4FHg7Re5TN07-rG5cceXQ_IWOmitoc";
+"sb_publishable_A4FHg7Re5TN07-rG5cceX_IWOmitoc";
 
 const db =
 supabase.createClient(
@@ -422,30 +707,35 @@ let products=[];
 let categories=[];
 let stories=[];
 let selectedCategory=null;
+let editingProductId=null;
 
 
 /* =========================
-SAFE HTML
+SAFE
 ========================= */
 
 function safe(value){
 
- const d=document.createElement("div");
- d.textContent=value ?? "";
- return d.innerHTML;
+const d=document.createElement("div");
+
+d.textContent=value ?? "";
+
+return d.innerHTML;
 
 }
 
 
 /* =========================
-LOAD ALL
+LOAD
 ========================= */
 
 async function loadAll(){
 
- await loadProducts();
- await loadCategories();
- await loadStories();
+await Promise.all([
+loadProducts(),
+loadCategories(),
+loadStories()
+]);
 
 }
 
@@ -456,94 +746,112 @@ PRODUCTS
 
 async function loadProducts(){
 
- const {data,error}=await db
- .from("ads")
- .select("*")
- .eq("status","approved")
- .order("created_at",{ascending:false});
+const {data,error}=await db
+.from("ads")
+.select("*")
+.eq("status","approved")
+.order("created_at",{ascending:false});
 
- if(error){
-   console.error(error);
-   return;
- }
+if(error){
 
- products=data||[];
- renderProducts();
+console.error("PRODUCT ERROR:",error);
+
+document.getElementById("products").innerHTML=
+"<p>خطا در دریافت محصولات.</p>";
+
+return;
+}
+
+products=data||[];
+
+renderProducts();
 
 }
 
 
 function renderProducts(){
 
- const box=document.getElementById("products");
+const box=
+document.getElementById("products");
 
- const search=
- document.getElementById("search")
- .value
- .toLowerCase()
- .trim();
+const input=
+document.getElementById("search");
 
- let list=products.filter(p=>{
+const search=
+(input?.value||"")
+.toLowerCase()
+.trim();
 
-   const matchSearch=
-   (p.title||"")
-   .toLowerCase()
-   .includes(search);
+let list=products.filter(p=>{
 
-   const matchCategory=
-   !selectedCategory ||
-   String(p.category_id)===String(selectedCategory);
+const matchSearch=
+(p.title||"")
+.toLowerCase()
+.includes(search);
 
-   return matchSearch && matchCategory;
+const matchCategory=
+!selectedCategory ||
+String(p.category_id)===
+String(selectedCategory);
 
- });
+return matchSearch && matchCategory;
 
- box.innerHTML="";
+});
 
- if(!list.length){
+box.innerHTML="";
 
-   box.innerHTML="<p>محصولی پیدا نشد.</p>";
-   return;
+if(!list.length){
 
- }
+box.innerHTML=
+"<p>محصولی پیدا نشد 🌸</p>";
 
- list.forEach(p=>{
+return;
 
-   const image=
-   p.image_url ||
-   "https://placehold.co/600x600/250b30/ffffff?text=Nora";
+}
 
-   const div=document.createElement("article");
+list.forEach(p=>{
 
-   div.className="card";
+const image=
+p.image_url ||
+"https://placehold.co/600x600/250b30/ffffff?text=Nora";
 
-   div.innerHTML=`
+const div=
+document.createElement("article");
 
-   <img src="${safe(image)}">
+div.className="card";
 
-   <div class="body">
+div.innerHTML=`
 
-   <h3>${safe(p.title)}</h3>
+<img
+src="${safe(image)}"
+alt="${safe(p.title)}">
 
-   <div class="desc">
-   ${safe(p.description||"")}
-   </div>
+<div class="body">
 
-   <div class="price">
-   ${safe(p.price||"")} تومان
-   </div>
+<h3>
+${safe(p.title)}
+</h3>
 
-   <button class="order"
-   onclick="openOrder('${p.id}')">
-   🛒 ثبت سفارش
-   </button>
+<div class="desc">
+${safe(p.description||"")}
+</div>
 
-   </div>
-   `;
+<div class="price">
+${safe(p.price||"")} تومان
+</div>
 
-   box.appendChild(div);
+<button
+class="order"
+onclick="openOrder('${p.id}')">
+🛒 ثبت سفارش
+</button>
 
- });
+</div>
+`;
+
+box.appendChild(div);
+
+});
 
 }
 
@@ -554,90 +862,107 @@ CATEGORIES
 
 async function loadCategories(){
 
- const {data,error}=await db
- .from("categories")
- .select("*")
- .eq("status","approved")
- .order("created_at",{ascending:false});
+const {data,error}=await db
+.from("categories")
+.select("*")
+.eq("status","approved")
+.order("created_at",{ascending:false});
 
- if(error){
-   console.error(error);
-   return;
- }
+if(error){
 
- categories=data||[];
+console.error("CATEGORY ERROR:",error);
 
- renderCategories();
- fillCategorySelect();
+return;
+}
+
+categories=data||[];
+
+renderCategories();
+
+fillCategorySelect();
 
 }
 
 
 function renderCategories(){
 
- const box=document.getElementById("categories");
+const box=
+document.getElementById("categories");
 
- box.innerHTML="";
+box.innerHTML="";
 
- const all=document.createElement("button");
+const all=
+document.createElement("button");
 
- all.className=
- selectedCategory===null
- ? "cat active"
- : "cat";
+all.className=
+selectedCategory===null
+?"cat active"
+:"cat";
 
- all.textContent="همه";
+all.textContent="همه";
 
- all.onclick=()=>{
-   selectedCategory=null;
-   renderCategories();
-   renderProducts();
- };
+all.onclick=()=>{
 
- box.appendChild(all);
+selectedCategory=null;
 
- categories.forEach(c=>{
+renderCategories();
 
-   const b=document.createElement("button");
+renderProducts();
 
-   b.className=
-   String(selectedCategory)===String(c.id)
-   ? "cat active"
-   : "cat";
+};
 
-   b.textContent=c.name;
+box.appendChild(all);
 
-   b.onclick=()=>{
-     selectedCategory=c.id;
-     renderCategories();
-     renderProducts();
-   };
+categories.forEach(c=>{
 
-   box.appendChild(b);
+const b=
+document.createElement("button");
 
- });
+b.className=
+String(selectedCategory)===
+String(c.id)
+?"cat active"
+:"cat";
+
+b.textContent=c.name;
+
+b.onclick=()=>{
+
+selectedCategory=c.id;
+
+renderCategories();
+
+renderProducts();
+
+};
+
+box.appendChild(b);
+
+});
 
 }
 
 
 function fillCategorySelect(){
 
- const select=
- document.getElementById("pCategory");
+const select=
+document.getElementById("pCategory");
 
- select.innerHTML=
- '<option value="">بدون دسته‌بندی</option>';
+select.innerHTML=
+'<option value="">بدون دسته‌بندی</option>';
 
- categories.forEach(c=>{
+categories.forEach(c=>{
 
-   const o=document.createElement("option");
+const option=
+document.createElement("option");
 
-   o.value=c.id;
-   o.textContent=c.name;
+option.value=c.id;
 
-   select.appendChild(o);
+option.textContent=c.name;
 
- });
+select.appendChild(option);
+
+});
 
 }
 
@@ -648,113 +973,158 @@ STORIES
 
 async function loadStories(){
 
- const {data,error}=await db
- .from("stories")
- .select("*")
- .eq("status","approved")
- .gt("expires_at",new Date().toISOString())
- .order("created_at",{ascending:false});
+const {data,error}=await db
+.from("stories")
+.select("*")
+.eq("status","approved")
+.gt(
+"expires_at",
+new Date().toISOString()
+)
+.order("created_at",{ascending:false});
 
- if(error){
-   console.error(error);
-   return;
- }
+if(error){
 
- stories=data||[];
+console.error("STORY ERROR:",error);
 
- renderStories();
+return;
+}
+
+stories=data||[];
+
+renderStories();
 
 }
 
 
 function renderStories(){
 
- const box=document.getElementById("stories");
+const box=
+document.getElementById("stories");
 
- box.innerHTML="";
+box.innerHTML="";
 
- if(!stories.length){
+if(!stories.length){
 
-   box.innerHTML=
-   "<span>فعلاً استوری جدیدی نیست 🌸</span>";
+box.innerHTML=
+"<span>فعلاً استوری جدیدی نیست 🌸</span>";
 
-   return;
- }
+return;
 
- stories.forEach(s=>{
+}
 
-   const div=document.createElement("div");
+stories.forEach(s=>{
 
-   div.className="story";
+const div=
+document.createElement("div");
 
-   div.innerHTML=`
+div.className="story";
 
-   <div class="storyImg">
+if(s.media_type==="video"){
 
-   ${
-     s.media_type==="video"
-     ?
-     `<video src="${safe(s.media_url)}"
-     style="width:100%;height:100%;object-fit:cover;border-radius:50%">
-     </video>`
-     :
-     `<img src="${safe(s.media_url)}">`
-   }
+div.innerHTML=`
 
-   </div>
+<div class="storyImg">
 
-   <span>${safe(s.title||"نورا شاپ")}</span>
+<video
+src="${safe(s.media_url)}"
+muted>
+</video>
 
-   `;
+</div>
 
-   div.onclick=()=>openStory(s);
+<span>
+${safe(s.title||"Nora Shop")}
+</span>
 
-   box.appendChild(div);
+`;
 
- });
+}else{
+
+div.innerHTML=`
+
+<div class="storyImg">
+
+<img
+src="${safe(s.media_url)}">
+
+</div>
+
+<span>
+${safe(s.title||"Nora Shop")}
+</span>
+
+`;
+
+}
+
+div.onclick=()=>openStory(s);
+
+box.appendChild(div);
+
+});
 
 }
 
 
 function openStory(s){
 
- const box=
- document.getElementById("storyContent");
+const box=
+document.getElementById("storyContent");
 
- if(s.media_type==="video"){
+if(s.media_type==="video"){
 
-   box.innerHTML=`
-   <h3>${safe(s.title||"")}</h3>
-   <video src="${safe(s.media_url)}"
-   controls autoplay
-   style="width:100%;max-height:65vh;border-radius:15px">
-   </video>
-   <p>${safe(s.description||"")}</p>
-   `;
+box.innerHTML=`
 
- }else{
+<h3>
+${safe(s.title||"")}
+</h3>
 
-   box.innerHTML=`
-   <h3>${safe(s.title||"")}</h3>
-   <img src="${safe(s.media_url)}"
-   style="width:100%;max-height:65vh;object-fit:contain;border-radius:15px">
-   <p>${safe(s.description||"")}</p>
-   `;
+<video
+src="${safe(s.media_url)}"
+controls
+autoplay
+style="width:100%;max-height:65vh;border-radius:15px">
+</video>
 
- }
+<p>
+${safe(s.description||"")}
+</p>
 
- document
- .getElementById("storyModal")
- .classList.add("show");
+`;
+
+}else{
+
+box.innerHTML=`
+
+<h3>
+${safe(s.title||"")}
+</h3>
+
+<img
+src="${safe(s.media_url)}"
+style="width:100%;max-height:65vh;object-fit:contain;border-radius:15px">
+
+<p>
+${safe(s.description||"")}
+</p>
+
+`;
+
+}
+
+document
+.getElementById("storyModal")
+.classList.add("show");
 
 }
 
 
 function storyClose(){
 
- document
- .getElementById("storyModal")
- .classList.remove("show");
+document
+.getElementById("storyModal")
+.classList.remove("show");
 
 }
 
@@ -764,87 +1134,128 @@ LOGIN
 ========================= */
 
 function loginOpen(){
- document.getElementById("loginModal")
- .classList.add("show");
+
+document
+.getElementById("loginModal")
+.classList.add("show");
+
 }
 
+
 function loginClose(){
- document.getElementById("loginModal")
- .classList.remove("show");
+
+document
+.getElementById("loginModal")
+.classList.remove("show");
+
 }
 
 
 async function login(){
 
- const email=
- document.getElementById("email").value.trim();
+const email=
+document
+.getElementById("email")
+.value
+.trim();
 
- const password=
- document.getElementById("password").value;
+const password=
+document
+.getElementById("password")
+.value;
 
- const {error}=await db.auth
- .signInWithPassword({
-   email,
-   password
- });
+if(!email||!password){
 
- if(error){
+alert("ایمیل و رمز عبور را وارد کنید.");
 
-   alert("ایمیل یا رمز عبور اشتباه است.");
-   console.error(error);
-   return;
-
- }
-
- loginClose();
-
- document
- .getElementById("adminPanel")
- .classList.add("show");
+return;
 
 }
 
+const {error}=
+await db.auth.signInWithPassword({
+email,
+password
+});
 
-/* =========================
-ADMIN
-========================= */
+if(error){
 
-function showAdmin(type){
+console.error(error);
 
- const sections=[
- "productAdmin",
- "categoryAdmin",
- "storyAdmin",
- "pendingAdmin"
- ];
+alert("ایمیل یا رمز عبور اشتباه است.");
 
- sections.forEach(id=>{
-   document.getElementById(id)
-   .classList.add("hidden");
- });
+return;
 
- if(type==="product")
- document.getElementById("productAdmin")
- .classList.remove("hidden");
+}
 
- if(type==="category")
- document.getElementById("categoryAdmin")
- .classList.remove("hidden");
+loginClose();
 
- if(type==="story")
- document.getElementById("storyAdmin")
- .classList.remove("hidden");
+document
+.getElementById("adminPanel")
+.classList.add("show");
+
+showAdmin("product");
 
 }
 
 
 async function logout(){
 
- await db.auth.signOut();
+await db.auth.signOut();
 
- document
- .getElementById("adminPanel")
- .classList.remove("show");
+document
+.getElementById("adminPanel")
+.classList.remove("show");
+
+}
+
+
+/* =========================
+ADMIN TABS
+========================= */
+
+function showAdmin(type){
+
+const sections=[
+"productAdmin",
+"categoryAdmin",
+"storyAdmin",
+"pendingAdmin",
+"manageAdmin"
+];
+
+sections.forEach(id=>{
+
+document
+.getElementById(id)
+.classList.add("hidden");
+
+});
+
+if(type==="product")
+document
+.getElementById("productAdmin")
+.classList.remove("hidden");
+
+if(type==="category")
+document
+.getElementById("categoryAdmin")
+.classList.remove("hidden");
+
+if(type==="story")
+document
+.getElementById("storyAdmin")
+.classList.remove("hidden");
+
+if(type==="pending")
+document
+.getElementById("pendingAdmin")
+.classList.remove("hidden");
+
+if(type==="manage")
+document
+.getElementById("manageAdmin")
+.classList.remove("hidden");
 
 }
 
@@ -855,36 +1266,42 @@ UPLOAD
 
 async function upload(file,bucket){
 
- if(!file)return null;
+if(!file)return null;
 
- const ext=
- file.name.includes(".")
- ? file.name.split(".").pop()
- : "bin";
+const ext=
+file.name.includes(".")
+?file.name.split(".").pop()
+:"bin";
 
- const name=
- crypto.randomUUID()+"."+ext;
+const name=
+crypto.randomUUID()+"."+ext;
 
- const {error}=await db.storage
- .from(bucket)
- .upload(name,file,{
-   contentType:file.type,
-   upsert:false
- });
+const {error}=
+await db.storage
+.from(bucket)
+.upload(name,file,{
+contentType:file.type,
+upsert:false
+});
 
- if(error){
+if(error){
 
-   console.error(error);
-   alert("آپلود فایل انجام نشد.");
-   return null;
+console.error(error);
 
- }
+alert(
+"آپلود فایل انجام نشد. Storage Bucket را بررسی کنید."
+);
 
- const {data}=db.storage
- .from(bucket)
- .getPublicUrl(name);
+return null;
 
- return data.publicUrl;
+}
+
+const {data}=
+db.storage
+.from(bucket)
+.getPublicUrl(name);
+
+return data.publicUrl;
 
 }
 
@@ -895,255 +1312,306 @@ SAVE PRODUCT
 
 async function saveProduct(){
 
- const {data:{session}}=
- await db.auth.getSession();
+const {data:{session}}=
+await db.auth.getSession();
 
- if(!session){
-   alert("ابتدا وارد مدیریت شوید.");
-   return;
- }
+if(!session){
 
- const title=
- document.getElementById("pTitle")
- .value.trim();
+alert("ابتدا وارد مدیریت شوید.");
 
- const price=
- document.getElementById("pPrice")
- .value.trim();
+return;
 
- const description=
- document.getElementById("pDescription")
- .value.trim();
+}
 
- const category=
- document.getElementById("pCategory").value;
+const title=
+document
+.getElementById("pTitle")
+.value.trim();
 
- const file=
- document.getElementById("pImage").files[0];
+const price=
+document
+.getElementById("pPrice")
+.value.trim();
 
- if(!title||!file){
+const description=
+document
+.getElementById("pDescription")
+.value.trim();
 
-   alert("نام محصول و عکس را وارد کنید.");
-   return;
+const category=
+document
+.getElementById("pCategory")
+.value;
 
- }
+const file=
+document
+.getElementById("pImage")
+.files[0];
 
- const image=
- await upload(file,"product-images");
+if(!title){
 
- if(!image)return;
+alert("نام محصول را وارد کنید.");
 
- const {error}=await db
- .from("ads")
- .insert({
-   title,
-   price,
-   description,
-   image_url:image,
-   phone:"09018815652",
-   category_id:category||null,
-   status:"pending"
- });
-
- if(error){
-
-   console.error(error);
-   alert("ثبت محصول انجام نشد.");
-   return;
-
- }
-
- alert("محصول ثبت شد و منتظر تأیید مدیر است.");
-
- clearProductForm();
+return;
 
 }
 
 
-function clearProductForm(){
+/* EDIT */
 
- document.getElementById("pTitle").value="";
- document.getElementById("pPrice").value="";
- document.getElementById("pDescription").value="";
- document.getElementById("pCategory").value="";
- document.getElementById("pImage").value="";
+if(editingProductId){
+
+let imageUrl=null;
+
+if(file){
+
+imageUrl=
+await upload(file,"product-images");
+
+if(!imageUrl)return;
+
+}
+
+const updateData={
+title,
+price,
+description,
+category_id:category||null
+};
+
+if(imageUrl)
+updateData.image_url=imageUrl;
+
+const {error}=
+await db
+.from("ads")
+.update(updateData)
+.eq("id",editingProductId);
+
+if(error){
+
+console.error(error);
+
+alert("ویرایش انجام نشد.");
+
+return;
+
+}
+
+alert("محصول ویرایش شد.");
+
+editingProductId=null;
+
+clearProductForm();
+
+await loadProducts();
+
+return;
+
+}
+
+
+/* NEW PRODUCT */
+
+if(!file){
+
+alert("عکس محصول را انتخاب کنید.");
+
+return;
+
+}
+
+const image=
+await upload(file,"product-images");
+
+if(!image)return;
+
+const {error}=
+await db
+.from("ads")
+.insert({
+
+title,
+price,
+description,
+image_url:image,
+phone:"09018815652",
+category_id:category||null,
+status:"pending"
+
+});
+
+if(error){
+
+console.error(error);
+
+alert("ثبت محصول انجام نشد.");
+
+return;
+
+}
+
+alert(
+"محصول ثبت شد و منتظر تأیید مدیر است."
+);
+
+clearProductForm();
 
 }
 
 
 /* =========================
-SAVE CATEGORY
+CLEAR PRODUCT
+========================= */
+
+function clearProductForm(){
+
+editingProductId=null;
+
+document.getElementById("pTitle").value="";
+document.getElementById("pPrice").value="";
+document.getElementById("pDescription").value="";
+document.getElementById("pCategory").value="";
+document.getElementById("pImage").value="";
+
+}
+
+
+/* =========================
+CATEGORY
 ========================= */
 
 async function saveCategory(){
 
- const name=
- document.getElementById("cName")
- .value.trim();
+const name=
+document
+.getElementById("cName")
+.value.trim();
 
- const file=
- document.getElementById("cImage")
- .files[0];
+const file=
+document
+.getElementById("cImage")
+.files[0];
 
- if(!name){
+if(!name){
 
-   alert("نام دسته را وارد کنید.");
-   return;
+alert("نام دسته را وارد کنید.");
 
- }
+return;
 
- let image=null;
+}
 
- if(file){
+let image=null;
 
-   image=
-   await upload(file,"product-images");
+if(file){
 
-   if(!image)return;
+image=
+await upload(file,"product-images");
 
- }
+if(!image)return;
 
- const {error}=await db
- .from("categories")
- .insert({
-   name,
-   image_url:image,
-   status:"pending"
- });
+}
 
- if(error){
+const {error}=
+await db
+.from("categories")
+.insert({
 
-   console.error(error);
-   alert("ثبت دسته انجام نشد.");
-   return;
+name,
+image_url:image,
+status:"pending"
 
- }
+});
 
- alert("دسته ثبت شد و منتظر تأیید مدیر است.");
+if(error){
 
- document.getElementById("cName").value="";
- document.getElementById("cImage").value="";
+console.error(error);
+
+alert("ثبت دسته انجام نشد.");
+
+return;
+
+}
+
+alert(
+"دسته ثبت شد و منتظر تأیید مدیر است."
+);
+
+document.getElementById("cName").value="";
+document.getElementById("cImage").value="";
 
 }
 
 
 /* =========================
-SAVE STORY
+STORY
 ========================= */
 
 async function saveStory(){
 
- const title=
- document.getElementById("sTitle")
- .value.trim();
+const title=
+document
+.getElementById("sTitle")
+.value.trim();
 
- const description=
- document.getElementById("sDescription")
- .value.trim();
+const description=
+document
+.getElementById("sDescription")
+.value.trim();
 
- const file=
- document.getElementById("sMedia").files[0];
+const file=
+document
+.getElementById("sMedia")
+.files[0];
 
- if(!file){
+if(!file){
 
-   alert("عکس یا ویدئو انتخاب کنید.");
-   return;
+alert("عکس یا ویدئو انتخاب کنید.");
 
- }
-
- const media=
- await upload(file,"story-media");
-
- if(!media)return;
-
- const type=
- file.type.startsWith("video/")
- ? "video"
- : "image";
-
- const {error}=await db
- .from("stories")
- .insert({
-   title,
-   description,
-   media_url:media,
-   media_type:type,
-   status:"pending",
-   expires_at:
-   new Date(Date.now()+24*60*60*1000)
-   .toISOString()
- });
-
- if(error){
-
-   console.error(error);
-   alert("ثبت استوری انجام نشد.");
-   return;
-
- }
-
- alert("استوری ثبت شد و منتظر تأیید مدیر است.");
-
- document.getElementById("sTitle").value="";
- document.getElementById("sDescription").value="";
- document.getElementById("sMedia").value="";
+return;
 
 }
 
+const media=
+await upload(file,"story-media");
 
-/* =========================
-PENDING
-========================= */
+if(!media)return;
 
-async function loadPending(){
+const type=
+file.type.startsWith("video/")
+?"video"
+:"image";
 
- showAdmin("pending");
+const {error}=
+await db
+.from("stories")
+.insert({
 
- const box=
- document.getElementById("pendingList");
+title,
+description,
+media_url:media,
+media_type:type,
+status:"pending",
 
- box.innerHTML="در حال دریافت...";
+expires_at:
+new Date(
+Date.now()+24*60*60*1000
+).toISOString()
 
- const [
-   adsResult,
-   catResult,
-   storyResult
- ]=await Promise.all([
+});
 
-   db.from("ads")
-   .select("*")
-   .eq("status","pending")
-   .order("created_at",{ascending:false}),
+if(error){
 
-   db.from("categories")
-   .select("*")
-   .eq("status","pending")
-   .order("created_at",{ascending:false}),
+console.error(error);
 
-   db.from("stories")
-   .select("*")
-   .eq("status","pending")
-   .order("created_at",{ascending:false})
+alert("ثبت استوری انجام نشد.");
 
- ]);
+return;
 
- box.innerHTML="";
+}
 
- const ads=adsResult.data||[];
- const cats=catResult.data||[];
- const sts=storyResult.data||[];
+alert(
+"استوری ثبت شد و منتظر تأیید مدیر است."
+);
 
-
- ads.forEach(x=>{
-
-   const d=document.createElement("div");
-
-   d.className="pending";
-
-   d.innerHTML=`
-
-   <b>📦 محصول: ${safe(x.title)}</b>
-
-   <p>${safe(x.price||"")} تومان</p>
-
-   <button class="appr
+document.get
